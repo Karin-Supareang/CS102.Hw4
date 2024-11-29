@@ -157,7 +157,7 @@ void deposit(struct custidy record[], int n)
      scanf("%f", &add_money);
    do
    {
-    printf("It is hereby stated with utmost clarity that one is unequivocally prohibited from depositing an amount that is equal to or less than zero\n. I earnestly beseech you to attempt once more with utmost diligence.");
+    printf("It is hereby stated with utmost clarity that one is unequivocally prohibited from depositing\ndepositing an amount that is equal to or less than zero\n. I earnestly beseech you to attempt once more with utmost diligence.");
     printf("Enter amount to deposit: ");
      scanf("%f", &add_money);
    }while(add_money < 1);
