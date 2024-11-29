@@ -46,15 +46,22 @@ do
 
     for(i=0; i<tracking; i++)
     {
-     if(where_the_frick_is_that_customer == -1 && user_bunchee_input == record[i].accountNumber )
+     if(where_the_frick_is_that_customer == -1 &&  record[i].accountNumber ==  user_bunchee_input)
       {
         where_the_frick_is_that_customer == i;
       }
     }
-
-    deposit(record, where_the_frick_is_that_customer);
+     deposit(record, where_the_frick_is_that_customer);
   if(user_choice == 3)
-    withdraw(record, tracking);
+
+    for(i=0; i<tracking; i++)
+    {
+     if(where_the_frick_is_that_customer == -1 &&  record[i].accountNumber ==  user_bunchee_input)
+      {
+        where_the_frick_is_that_customer == i;
+      }
+    }
+    withdraw(record, where_the_frick_is_that_customer );
   if(user_choice == 4)
     {
      if(tracking == 0)
@@ -87,9 +94,23 @@ void addCustomer(struct custidy record[], int n)
       record[n].name[strcspn(record[n].name, "\n")] = '\0';
   printf("Enter initial balance: ");
     scanf("%f", &record[n].balance);
+  printf("Customer added successfully.");
 }
 
 void deposit(struct custidy record[], int n)
 {
+   int add_money;
+   printf("Enter amount to deposit: ");
+     scanf("%d", &add_money);
+   record[n].balance += add_money;
+   printf("Deposit successful. New balance: %d", record[n].balance);
+}
 
+void withdraw(struct custidy record[], int n)
+{
+  int rem_money;
+   printf("Enter amount to Withdraw: ");
+     scanf("%d", &rem_money);
+   record[n].balance += rem_money;
+   printf("Withdraw successful. New balance: %d", record[n].balance);
 }
