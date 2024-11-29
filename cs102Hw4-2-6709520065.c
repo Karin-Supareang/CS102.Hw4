@@ -43,6 +43,7 @@ do
     } else if (user_choice == 2 && tracking == 0) 
         {
           printf("No registered persons to display.\n");
+          printf("==\n");
         } else if(user_choice == 2 && tracking != 0)
         {
    
@@ -68,16 +69,16 @@ return 0;
 void read_data(struct identity record[], int n)
 {
   int i;
+  printf("ID\tName\t\t\tAge\tMonthly Income\n");
    for(i=0; i<n; i++)
    {
-    
-     printf("Member's ID: %d\n", record[i].id);
-     printf("Menber's Name: %s\n", record[i].name);
-     printf("Members age: %d\n", record[i].age);
-     printf("Member's mountly income: %.2f\n", record[i].income);
-     printf("==\n");
+     printf("%d\t", record[i].id);
+     printf("%s\t\t", record[i].name);
+     printf("%3d\t", record[i].age);
+     printf("%5.2f", record[i].income);
+     printf("\n");
    }
-
+      printf("==\n");
 }
 
 void write_data(struct identity record[], int n)
