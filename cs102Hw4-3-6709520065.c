@@ -18,6 +18,8 @@ int main(void)
 {
 
 int user_choice, tracking=0;
+int where_the_frick_is_that_customer = -1, user_bunchee_input;
+int i;
 
 printf("Bank Management System\n");
 printf("1. Add New Customer\n");
@@ -39,14 +41,25 @@ do
     tracking++;
   }
   if(user_choice == 2)
-    deposit(record, tracking);
+    printf("Enter account number for deposit: ");
+      scanf("%d", &user_bunchee_input);
+
+    for(i=0; i<tracking; i++)
+    {
+     if(where_the_frick_is_that_customer == -1 && user_bunchee_input == record[i].accountNumber )
+      {
+        where_the_frick_is_that_customer == i;
+      }
+    }
+
+    deposit(record, where_the_frick_is_that_customer);
   if(user_choice == 3)
     withdraw(record, tracking);
-  if(user_choice == 3)
+  if(user_choice == 4)
     {
      if(tracking == 0)
      {
-      printf("No MF Using our bank! We doom FrFr brother\n");
+      printf("No Mother lover using our bank! We doom FrFr brother\n");
       printf("==\n");
      }else if(tracking != 0)
        displayCustomer(record, tracking);
@@ -64,3 +77,19 @@ do
   return 0;
 }
 
+void addCustomer(struct custidy record[], int n)
+{
+  printf("Enter account number: ");
+    scanf("%d", &record[n].accountNumber);
+  getchar();
+  printf("Enter customer name: ");
+    fgets(record[n].name, 50, stdin);
+      record[n].name[strcspn(record[n].name, "\n")] = '\0';
+  printf("Enter initial balance: ");
+    scanf("%f", &record[n].balance);
+}
+
+void deposit(struct custidy record[], int n)
+{
+
+}
